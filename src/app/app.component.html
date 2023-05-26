@@ -6,10 +6,14 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<input (keyup)="changeImage($event)" [value]="imgURL">
 
-
-<p>Hello {{ name.toUpperCase }}</p>
-
+<p>Hello {{ name.toLowerCase() }}</p>
+<p>Hello {{ getName() }}</p>
+<p>{{15 + 1}}</p>
+<app-post [img]="imgURL" (imgSelected)="logImg($event)">
+  <p>Some content</p>
+</app-post>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
