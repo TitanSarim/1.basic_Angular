@@ -1,25 +1,25 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<ng-template [ngIf]="blueClass">
+  <p>Button is Blue</p>
+</ng-template>
+<!-- short hand way to write structural directives -->
+<p *ngIf="blueClass">Button is Blue</p>
+
+<button (click)="blueClass = !blueClass" [ngClass]="{ blue: blueClass  }" [ngStyle]="{'font-size.px': fontSize}">Change</button>
+<hr>
+
 <input (keyup)="changeImage($event)" [value]="imgURL">
 
-<p>Hello {{ name.toLowerCase() }}</p>
+<p>Hello {{ name | titlecase }}</p>
 <p>Hello {{ getName() }}</p>
 <p>{{15 + 1}}</p>
-<app-post [img]="imgURL" (imgSelected)="logImg($event)">
-  <p>Some content</p>
+
+<app-post *ngFor="let image of images let i = index" [img]="imgURL" (imgSelected)="logImg($event)">
+  <p>{{i}}Some content</p>
 </app-post>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<p>{{ currentDate | date: 'd MMMM YYYY' }}</p>
+<p>{{ cost | currency: 'JPY '}}</p>
+<p>{{ temperature | number: '1.2-5' }}</p>
+<p>{{ pizza | json }}</p>
+
 
